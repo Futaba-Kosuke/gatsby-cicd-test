@@ -24,8 +24,8 @@ jobs:
       - name: Archive Artifact
         uses: actions/upload-artifact@master
         with: 
-          name: dist
-          path: dist
+          name: public
+          path: public
 
   deploy:
     name: deploy
@@ -37,8 +37,8 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@master
         with:
-          name: dist
-          path: dist
+          name: public
+          path: public
       - name: Deploy to Fiebase Hosting
         uses: w9jds/firebase-action@master
         with:
