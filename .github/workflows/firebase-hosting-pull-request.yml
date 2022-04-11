@@ -5,12 +5,18 @@ name: Build and Deploy
 on: workflow_dispatch
 
 jobs:
+
   build:
     name: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: yarn
       - name: Install Node Modules
         run: yarn install
       - name: Build
